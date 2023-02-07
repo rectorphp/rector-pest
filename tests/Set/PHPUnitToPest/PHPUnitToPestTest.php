@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Rector\PEST\Tests\Set\PHPUnitToPest;
 
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
@@ -10,6 +12,6 @@ final class PHPUnitToPestTest extends AbstractRectorTestCase
 
     public function provideConfigFilePath(): string
     {
-        // TODO: Implement provideConfigFilePath() method.
+        
     }
 }
