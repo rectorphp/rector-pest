@@ -14,15 +14,15 @@ composer require rector/rector --dev
 
 ## Use Sets
 
-To add a set to your config, use `Rector\PhpParser\Set\PhpParserSetList` class and pick one of constants:
+To add a set to your config, use `Rector\Pest\Set\PestSetList` class and pick one of constants:
 
 ```php
-use Rector\PhpParser\Set\PhpParserSetList;
+use Rector\Pest\Set\PestSetList;
 use Rector\Config\RectorConfig;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->sets([
-        PhpParserSetList::PHP_PARSER_50
+        PestSetList::PHPUNIT_TO_PEST
     ]);
 };
 ```
