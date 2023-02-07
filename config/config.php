@@ -12,6 +12,6 @@ return static function (RectorConfig $rectorConfig): void {
         ->autowire()
         ->autoconfigure();
 
-    $services->load('Rector\\PhpParser\\', __DIR__ . '/../src')
-        ->exclude([__DIR__ . '/../src/Set', __DIR__ . '/../src/Rector', __DIR__ . '/../src/ValueObject']);
+    $services->load('Rector\\Pest\\', __DIR__ . '/../src')
+        ->exclude([__DIR__ . '/../src/Set', __DIR__ . '/../src/Rector']);
 };
