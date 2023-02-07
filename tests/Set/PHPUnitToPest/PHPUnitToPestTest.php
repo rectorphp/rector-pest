@@ -12,6 +12,5 @@ final class PHPUnitToPestTest extends AbstractRectorTestCase
 
     public function provideConfigFilePath(): string
     {
-        
     }
 }
