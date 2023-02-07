@@ -1,0 +1,53 @@
+{
+    "name": "mandisma/pest-converter",
+    "license": "MIT",
+    "description": "PHPUnit to Pest Converter",
+    "autoload": {
+        "psr-4": {
+            "PestConverter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PestConverter\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "mandisma",
+            "email": "mandis68@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "nikic/php-parser": "^4.13",
+        "symfony/console": "^5.3.3",
+        "symfony/finder": "^5.3"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.1",
+        "vimeo/psalm": "^5.1",
+        "pestphp/pest": "^1.20",
+        "composer/composer": "dev-main",
+        "bamarni/composer-bin-plugin": "^1.7"
+    },
+    "bin": [
+        "bin/pest-converter"
+    ],
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "bamarni/composer-bin-plugin": true
+        }
+    },
+    "scripts": {
+        "bin": "echo 'bin not installed'",
+        "post-install-cmd": ["@composer bin all install --ansi"],
+        "post-update-cmd": ["@composer bin all update --ansi"]
+    },
+    "extra": {
+        "bamarni-bin": {
+            "bin-links": false
+        }
+    }
+}
