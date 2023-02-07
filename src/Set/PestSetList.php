@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\PEST\Set;
+namespace Rector\Pest\Set;
 
 use Rector\Set\Contract\SetListInterface;
 
