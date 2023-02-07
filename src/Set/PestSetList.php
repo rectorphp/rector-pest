@@ -1,10 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Rector\PEST\Set;
 
 use Rector\Set\Contract\SetListInterface;
 
 final class PestSetList implements SetListInterface
 {
-    public const PHPUNIT_TO_PEST = ;
+    /**
+     * @var string
+     */
+    public const PHPUNIT_TO_PEST = __DIR__ . '/../../config/sets/phpunit-to-pest.php';
 }
