@@ -1,6 +1,6 @@
-# Rector Rules for PHPParser
+# Rector Rules for Pest
 
-See available [PHPParser rules](/docs/rector_rules_overview.md)
+See available [Pest rules](/docs/rector_rules_overview.md)
 
 ## Install
 
