@@ -1,7 +1,10 @@
 <?php
+
+namespace Rector\Pest\Tests\Rector\ClassMethod\TestClassMethodToPestTestFuncCallRector\Fixture;
+
 use PHPUnit\Framework\TestCase;
 
-class Example3Test extends TestCase
+final class GroupTest extends TestCase
 {
     /**
      * @group integration
@@ -11,12 +14,15 @@ class Example3Test extends TestCase
         $this->assertTrue(true);
     }
 }
+
 ?>
 -----
 <?php
-use PHPUnit\Framework\TestCase;
+
+namespace Rector\Pest\Tests\Rector\ClassMethod\TestClassMethodToPestTestFuncCallRector\Fixture;
 
 test('testSimple', function () {
     $this->assertTrue(true);
 })->group('integration');
+
 ?>

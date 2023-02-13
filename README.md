@@ -1,5 +1,7 @@
 # Rector Rules for Pest
 
+[Pest](https://github.com/pestphp/pest) testing framework for PHP.
+
 See available [Pest rules](/docs/rector_rules_overview.md)
 
 ## Install

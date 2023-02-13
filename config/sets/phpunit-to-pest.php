@@ -9,6 +9,7 @@ use Rector\Pest\Rector\Class_\PHPUnitTestToPestTestFunctionsRector;
 use Rector\Pest\Rector\Class_\TraitUsesToUsesRector;
 use Rector\Pest\Rector\ClassMethod\AfterBeforeClassToAfterAllBeforeAllRector;
 use Rector\Pest\Rector\ClassMethod\SetUpTearDownToBeforeEachAfterEachRector;
+use Rector\Pest\Rector\ClassMethod\TestClassMethodToPestTestFuncCallRector;
 
 /**
  * @see https://github.com/pestphp/drift
@@ -22,5 +23,6 @@ return static function (RectorConfig $rectorConfig): void {
         TraitUsesToUsesRector::class,
         AfterBeforeClassToAfterAllBeforeAllRector::class,
         SetUpTearDownToBeforeEachAfterEachRector::class,
+        TestClassMethodToPestTestFuncCallRector::class,
     ]);
 };
