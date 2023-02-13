@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pest\Drift\Exceptions;
+namespace Rector\Pest\Exceptions;
 
 use Exception;
 use RuntimeException;

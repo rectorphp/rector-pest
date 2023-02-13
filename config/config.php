@@ -7,6 +7,8 @@ use Rector\Config\RectorConfig;
 return static function (RectorConfig $rectorConfig): void {
     $services = $rectorConfig->services();
 
+    $rectorConfig->removeUnusedImports();
+
     $services->defaults()
         ->public()
         ->autowire()

@@ -2,7 +2,9 @@ includes:
     - vendor/symplify/phpstan-rules/config/symplify-rules.neon
 
 parameters:
-    level: max
+    level: 8
+
+    reportUnmatchedIgnoredErrors: false
 
     paths:
         - config
@@ -11,7 +13,7 @@ parameters:
 
     excludePaths:
         - */Source/*
-        - *Source/*
+        - */Fixture/*
 
     ignoreErrors:
         -

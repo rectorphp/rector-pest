@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pest\Drift;
+namespace Rector\Pest;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr;

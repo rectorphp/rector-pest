@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Pest\Drift;
+namespace Rector\Pest;
 
-use Pest\Drift\Commands\MigrateCommand;
-use Pest\Drift\Commands\PolishCommand;
+use Rector\Pest\Commands\MigrateCommand;
+use Rector\Pest\Commands\PolishCommand;
 use Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

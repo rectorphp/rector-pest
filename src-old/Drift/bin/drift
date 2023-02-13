@@ -14,7 +14,7 @@ $vendorPath = guessVendorPath();
 
 require_once "{$vendorPath}/autoload.php";
 
-$container = new \Pest\Drift\Application($vendorPath);
+$container = new \Rector\Pest\Application($vendorPath);
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +23,8 @@ $container = new \Pest\Drift\Application($vendorPath);
 |
 */
 
-/** @var \Pest\Drift\Kernel $kernel */
-$kernel = $container->get(\Pest\Drift\Kernel::class);
+/** @var \Rector\Pest\Kernel $kernel */
+$kernel = $container->get(\Rector\Pest\Kernel::class);
 
 $status = $kernel->handle(
     new Symfony\Component\Console\Input\ArgvInput,

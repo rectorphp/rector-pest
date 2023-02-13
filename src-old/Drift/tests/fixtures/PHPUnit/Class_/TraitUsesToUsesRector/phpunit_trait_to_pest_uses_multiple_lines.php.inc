@@ -1,6 +1,6 @@
 <?php
-use Pest\Drift\Testing\fixtures\TraitA;
-use Pest\Drift\Testing\fixtures\TraitB;
+use Rector\Pest\Tests\fixtures\TraitA;
+use Rector\Pest\Tests\fixtures\TraitB;
 use PHPUnit\Framework\TestCase;
 
 class UsesMultipleLinesTest extends TestCase
@@ -16,8 +16,8 @@ class UsesMultipleLinesTest extends TestCase
 ?>
 -----
 <?php
-use Pest\Drift\Testing\fixtures\TraitA;
-use Pest\Drift\Testing\fixtures\TraitB;
+use Rector\Pest\Tests\fixtures\TraitA;
+use Rector\Pest\Tests\fixtures\TraitB;
 use PHPUnit\Framework\TestCase;
 uses(TraitA::class, TraitB::class);
 test('testUsesMultipleLines', function () {
