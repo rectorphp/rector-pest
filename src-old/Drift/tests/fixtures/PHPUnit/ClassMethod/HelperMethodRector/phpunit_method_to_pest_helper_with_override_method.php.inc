@@ -1,6 +1,6 @@
 <?php
 namespace MethodOverride;
-use Pest\Drift\Testing\fixtures\CustomTestCase;
+use Rector\Pest\Tests\fixtures\CustomTestCase;
 
 class MethodOverrideTest extends CustomTestCase
 {
@@ -23,7 +23,7 @@ class MethodOverrideTest extends CustomTestCase
 -----
 <?php
 namespace MethodOverride;
-use Pest\Drift\Testing\fixtures\CustomTestCase;
+use Rector\Pest\Tests\fixtures\CustomTestCase;
 
 class MethodOverrideTest extends CustomTestCase
 {

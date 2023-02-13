@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pest\Drift\Pest\FuncCall;
+namespace Rector\Pest\Pest\FuncCall;
 
 use Nette\Utils\Strings;
 use PhpParser\Node;

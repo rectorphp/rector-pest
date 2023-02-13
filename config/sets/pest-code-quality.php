@@ -6,7 +6,5 @@ use Rector\Config\RectorConfig;
 use Rector\Pest\Rector\FuncCall\PestItNamingRector;
 
 return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->rules([
-        PestItNamingRector::class,
-    ]);
+    $rectorConfig->rules([PestItNamingRector::class]);
 };

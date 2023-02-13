@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pest\Drift;
+namespace Rector\Pest;
 
 use Exception;
 use Psr\Container\ContainerInterface;

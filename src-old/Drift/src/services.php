@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use Pest\Drift\Application;
-use Pest\Drift\Commands\MigrateCommand;
-use Pest\Drift\Commands\PolishCommand;
-use Pest\Drift\Kernel;
-use Pest\Drift\RectorRunner;
+use Rector\Pest\Application;
+use Rector\Pest\Commands\MigrateCommand;
+use Rector\Pest\Commands\PolishCommand;
+use Rector\Pest\Kernel;
+use Rector\Pest\RectorRunner;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $configurator): void {

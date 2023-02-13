@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Rector\Pest\Rector\FuncCall;
 
-use Nette\Utils\Strings;
 use PhpParser\Node;
+use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\String_;
@@ -19,7 +19,9 @@ use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
  */
 final class PestItNamingRector extends AbstractRector implements DocumentedRuleInterface
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     private const KEYWORD = 'it';
 
     public function getRuleDefinition(): RuleDefinition
@@ -28,7 +30,8 @@ final class PestItNamingRector extends AbstractRector implements DocumentedRuleI
             new CodeSample(
                 <<<'PHP'
 test('it starts with it')->skip();
-PHP,
+PHP
+                ,
                 <<<'PHP'
 it('starts with it')->skip();
 PHP
@@ -51,24 +54,24 @@ PHP
         }
 
         $args = (array) $node->args;
-        if (count($args) === 0) {
+        if ($args === []) {
             return null;
         }
 
         $firstArgument = $args[0];
 
-        if (!$firstArgument instanceof Node\Arg) {
+        if (! $firstArgument instanceof Arg) {
             return null;
         }
 
         $value = $firstArgument->value;
-        if (!$value instanceof String_) {
+        if (! $value instanceof String_) {
             return null;
         }
 
         $firstArgumentValue = $value->value;
 
-        if (! Strings::startsWith($firstArgumentValue, self::KEYWORD)) {
+        if (! \str_starts_with($firstArgumentValue, self::KEYWORD)) {
             return null;
         }
 
