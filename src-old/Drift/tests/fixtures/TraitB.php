@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pest\Drift\Testing\fixtures;
+namespace Rector\Pest\Tests\fixtures;
 
 trait TraitB
 {

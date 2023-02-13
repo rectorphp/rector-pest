@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Pest\Drift\Testing\Rectors\Polish\FuncCall;
+namespace Rector\Pest\Tests\Rector\Polish\FuncCall;
 
 use Iterator;
-use Pest\Drift\Pest\FuncCall\PestItNamingRector;
-use Pest\Drift\Testing\Rectors\Polish\BasePolishRectorTest;
+use Rector\Pest\Pest\FuncCall\PestItNamingRector;
+use Rector\Pest\Tests\Rector\Polish\BasePolishRectorTest;
 use Symplify\SmartFileSystem\SmartFileInfo;
 
 final class PestItNamingRectorTest extends BasePolishRectorTest

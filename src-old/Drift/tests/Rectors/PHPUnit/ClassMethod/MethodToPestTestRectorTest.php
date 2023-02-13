@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Pest\Drift\Testing\Rectors\PHPUnit\ClassMethod;
+namespace Rector\Pest\Tests\Rector\PHPUnit\ClassMethod;
 
 use Iterator;
-use Pest\Drift\Testing\Rectors\PHPUnit\BasePHPUnitRectorTest;
+use Rector\Pest\Tests\Rector\PHPUnit\BasePHPUnitRectorTest;
 use Symplify\SmartFileSystem\SmartFileInfo;
 
 final class MethodToPestTestRectorTest extends BasePHPUnitRectorTest

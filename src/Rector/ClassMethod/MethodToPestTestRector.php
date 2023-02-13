@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Pest\Drift\PHPUnit\ClassMethod;
+namespace Rector\Pest\PHPUnit\ClassMethod;
 
 use Nette\Utils\Strings;
-use Pest\Drift\PestCollector;
-use Pest\Drift\ValueObject\MethodCallWithPosition;
+use Rector\Pest\PestCollector;
+use Rector\Pest\ValueObject\MethodCallWithPosition;
 use PhpParser\Node;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\Closure;

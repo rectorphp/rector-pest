@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Pest\Drift\Commands;
+namespace Rector\Pest\Commands;
 
-use Pest\Drift\RectorRunner;
+use Rector\Pest\RectorRunner;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

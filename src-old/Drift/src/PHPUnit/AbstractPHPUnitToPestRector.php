@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Pest\Drift\PHPUnit;
+namespace Rector\Pest\PHPUnit;
 
 use Exception;
-use Pest\Drift\PestCollector;
+use Rector\Pest\PestCollector;
 use PhpParser\Node;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\Closure;

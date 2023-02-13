@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Pest\Drift\Testing\Rectors\PHPUnit;
+namespace Rector\Pest\Tests\Rector\PHPUnit;
 
-use Pest\Drift\Testing\BaseRectorTestCase;
+use Rector\Pest\Tests\BaseRectorTestCase;
 use Symplify\SmartFileSystem\SmartFileInfo;
 
 abstract class BasePHPUnitRectorTest extends BaseRectorTestCase

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Pest\Drift\Testing\Rectors\PHPUnit\Class_;
+namespace Rector\Pest\Tests\Rector\PHPUnit\Class_;
 
 use Iterator;
-use Pest\Drift\Testing\Rectors\PHPUnit\BasePHPUnitRectorTest;
+use Rector\Pest\Tests\Rector\PHPUnit\BasePHPUnitRectorTest;
 use Symplify\SmartFileSystem\SmartFileInfo;
 
 final class PhpDocGroupOnClassToFileScopeGroupRectorTest extends BasePHPUnitRectorTest

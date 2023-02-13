@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Pest\Drift\PHPUnit\ClassMethod;
+namespace Rector\Pest\PHPUnit\ClassMethod;
 
-use Pest\Drift\PHPUnit\AbstractPHPUnitToPestRector;
+use Rector\Pest\PHPUnit\AbstractPHPUnitToPestRector;
 use PhpParser\Node;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;

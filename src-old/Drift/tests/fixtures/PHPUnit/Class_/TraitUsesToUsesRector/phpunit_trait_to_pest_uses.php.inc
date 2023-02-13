@@ -1,5 +1,5 @@
 <?php
-use Pest\Drift\Testing\fixtures\TraitA;
+use Rector\Pest\Tests\fixtures\TraitA;
 use PHPUnit\Framework\TestCase;
 
 class UsesTest extends TestCase
@@ -14,7 +14,7 @@ class UsesTest extends TestCase
 ?>
 -----
 <?php
-use Pest\Drift\Testing\fixtures\TraitA;
+use Rector\Pest\Tests\fixtures\TraitA;
 use PHPUnit\Framework\TestCase;
 uses(TraitA::class);
 test('testUses', function () {

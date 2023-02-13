@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pest\Drift\ValueObject;
+namespace Rector\Pest\ValueObject;
 
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\MethodCall;

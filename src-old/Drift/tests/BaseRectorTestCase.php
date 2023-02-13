@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pest\Drift\Testing;
+namespace Rector\Pest\Tests;
 
 use Rector\Core\Testing\PHPUnit\AbstractRectorTestCase;
 

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Pest\Drift\PHPUnit\Class_;
+namespace Rector\Pest\PHPUnit\Class_;
 
-use Pest\Drift\PHPUnit\AbstractPHPUnitToPestRector;
+use Rector\Pest\PHPUnit\AbstractPHPUnitToPestRector;
 use PhpParser\Node;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\FuncCall;

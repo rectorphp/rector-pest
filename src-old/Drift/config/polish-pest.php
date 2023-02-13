@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Pest\Drift\Pest\FuncCall\PestItNamingRector;
-use Pest\Drift\Pest\FuncCall\PestTestNamingRector;
+use Rector\Pest\Pest\FuncCall\PestItNamingRector;
+use Rector\Pest\Pest\FuncCall\PestTestNamingRector;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {

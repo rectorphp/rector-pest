@@ -1,10 +1,10 @@
 <?php
-use Pest\Drift\Testing\fixtures\TraitA;
+use Rector\Pest\Tests\fixtures\TraitA;
 use PHPUnit\Framework\TestCase;
 
 class UsesMultipleTest extends TestCase
 {
-    use TraitA, \Pest\Drift\Testing\fixtures\TraitB;
+    use TraitA, \Rector\Pest\Tests\fixtures\TraitB;
 
     public function testUsesMultiple()
     {
@@ -14,9 +14,9 @@ class UsesMultipleTest extends TestCase
 ?>
 -----
 <?php
-use Pest\Drift\Testing\fixtures\TraitA;
+use Rector\Pest\Tests\fixtures\TraitA;
 use PHPUnit\Framework\TestCase;
-uses(TraitA::class, \Pest\Drift\Testing\fixtures\TraitB::class);
+uses(TraitA::class, \Rector\Pest\Tests\fixtures\TraitB::class);
 test('testUsesMultiple', function () {
     $this->assertTrue(true);
 });

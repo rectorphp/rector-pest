@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Pest\Drift\Pest;
+namespace Rector\Pest\Pest;
 
-use Pest\Drift\PestCollector;
+use Rector\Pest\PestCollector;
 use PhpParser\Node;
 use Rector\Core\RectorDefinition\RectorDefinition;
 use Rector\PostRector\Rector\AbstractPostRector;

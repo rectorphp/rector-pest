@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Pest\Drift\PHPUnit\ClassMethod;
+namespace Rector\Pest\PHPUnit\ClassMethod;
 
-use Pest\Drift\PestCollector;
+use Rector\Pest\PestCollector;
 use PhpParser\Node\Expr\Closure;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Stmt\Class_;

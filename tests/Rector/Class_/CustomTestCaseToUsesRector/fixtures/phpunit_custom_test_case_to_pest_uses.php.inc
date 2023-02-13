@@ -1,5 +1,5 @@
 <?php
-use Pest\Drift\Testing\fixtures\CustomTestCase;
+use Rector\Pest\Tests\fixtures\CustomTestCase;
 
 class CustomTestCaseTest extends CustomTestCase
 {
@@ -11,8 +11,8 @@ class CustomTestCaseTest extends CustomTestCase
 ?>
 -----
 <?php
-use Pest\Drift\Testing\fixtures\CustomTestCase;
-uses(\Pest\Drift\Testing\fixtures\CustomTestCase::class);
+use Rector\Pest\Tests\fixtures\CustomTestCase;
+uses(\Rector\Pest\Tests\fixtures\CustomTestCase::class);
 test('testCustomTestCase', function () {
     $this->assertTrue(true);
 });
