@@ -7,8 +7,5 @@ use Rector\Pest\Rector\FuncCall\PestItNamingRector;
 use Rector\Pest\Rector\FuncCall\PestTrimmingNamingRector;
 
 return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->rules([
-        PestItNamingRector::class,
-        PestTrimmingNamingRector::class,
-    ]);
+    $rectorConfig->rules([PestItNamingRector::class, PestTrimmingNamingRector::class]);
 };

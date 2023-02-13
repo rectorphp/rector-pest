@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace Rector\Pest\Rector\FuncCall;
 
-use Nette\Utils\Strings;
 use PhpParser\Node;
+use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\FuncCall;
-use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\String_;
 use Rector\Core\Rector\AbstractRector;
 use Symplify\RuleDocGenerator\Contract\DocumentedRuleInterface;
@@ -25,7 +24,8 @@ final class PestTrimmingNamingRector extends AbstractRector implements Documente
             new CodeSample(
                 <<<'PHP'
 test('  has spaces')->skip();
-PHP,
+PHP
+                ,
                 <<<'PHP'
 test('has spaces')->skip();
 PHP
@@ -48,18 +48,18 @@ PHP
         }
 
         $args = (array) $node->args;
-        if (count($args) === 0) {
+        if ($args === []) {
             return null;
         }
 
         $firstArgument = $args[0];
 
-        if (!$firstArgument instanceof Node\Arg) {
+        if (! $firstArgument instanceof Arg) {
             return null;
         }
 
         $value = $firstArgument->value;
-        if (!$value instanceof String_) {
+        if (! $value instanceof String_) {
             return null;
         }
 
