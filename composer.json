@@ -20,7 +20,10 @@
         "rector/rector-src": "dev-main",
         "symplify/vendor-patches": "^11.2",
         "rector/rector-generator": "^0.6.15",
-        "symplify/easy-ci": "^11.2"
+        "symplify/easy-ci": "^11.2",
+        "tomasvotruba/unused-public": "^0.0.34",
+        "tomasvotruba/type-coverage": "^0.0.9",
+        "tomasvotruba/cognitive-complexity": "^0.0.5"
     },
     "autoload": {
         "psr-4": {

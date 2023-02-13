@@ -71,7 +71,7 @@ CODE_SAMPLE
      * @param Class_ $node
      * @return Node[]|null
      */
-    public function refactor(Node $node)
+    public function refactor(Node $node): ?array
     {
         if (! $this->testsNodeAnalyzer->isInTestClass($node)) {
             return null;

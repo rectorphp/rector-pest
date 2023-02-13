@@ -19,3 +19,18 @@ parameters:
         -
             message: '#Attribute must have all names explicitly defined#'
             path: "tests/*"
+
+    cognitive_complexity:
+        class: 30
+        function: 9
+
+    type_coverage:
+        return_type: 100
+        param_type: 100
+        property_type: 100
+        print_suggestions: true
+
+    unused_public:
+        methods: true
+        properties: true
+        constants: true

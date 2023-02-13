@@ -62,8 +62,9 @@ CODE_SAMPLE
 
     /**
      * @param Class_ $node
+     * @return Node\Stmt[]|null
      */
-    public function refactor(Node $node)
+    public function refactor(Node $node): ?array
     {
         if (! $this->testsNodeAnalyzer->isInTestClass($node)) {
             return null;
@@ -89,51 +90,38 @@ CODE_SAMPLE
 
     private function createPestTestCall(ClassMethod $classMethod): FuncCall|MethodCall
     {
-        // @todo move comelte to epst nfoact fyotry
-        $pestTestNode = $this->pestFuncCallFactory->create($classMethod);
-        $pestTestNode = $this->migratePhpDocGroup($classMethod, $pestTestNode);
-        $pestTestNode = $this->migrateDataProvider($classMethod, $pestTestNode);
-        $pestTestNode = $this->migrateExpectException($classMethod, $pestTestNode);
-        $pestTestNode = $this->migrateSkipCall($classMethod, $pestTestNode);
+        $pestTestCall = $this->pestFuncCallFactory->create($classMethod);
 
-        return $this->migratePhpDocDepends($classMethod, $pestTestNode);
-    }
+        // doc block related
+        $pestTestCall = $this->refactorPhpDocAnnotationToMethodCall($classMethod, $pestTestCall, 'group');
+        $pestTestCall = $this->refactorPhpDocAnnotationToMethodCall($classMethod, $pestTestCall, 'depends');
 
-    private function getExpectExceptionCall(ClassMethod $classMethod): ?MethodCall
-    {
-        foreach ((array) $classMethod->getStmts() as $stmt) {
-            if (! $stmt instanceof Expression) {
+        foreach ((array) $classMethod->stmts as $classMethodStmt) {
+            if (! $classMethodStmt instanceof Expression) {
                 continue;
             }
 
-            if (! $stmt->expr instanceof MethodCall) {
+            if (! $classMethodStmt->expr instanceof MethodCall) {
                 continue;
             }
 
-            $methodCall = $stmt->expr;
-            if (! $this->isName($methodCall->name, 'expectException')) {
-                continue;
+            $methodCall = $classMethodStmt->expr;
+
+            // this is important!
+            if ($this->isName($methodCall->name, 'expectException')) {
+                $pestTestCall = new MethodCall($pestTestCall, 'throws', $methodCall->getArgs());
+
+                $this->removeNode($classMethodStmt);
             }
 
-            return $methodCall;
+            if ($this->isName($methodCall->name, 'markTestSkipped')) {
+                $pestTestCall = new MethodCall($pestTestCall, 'skip', $methodCall->getArgs());
+
+                $this->removeNode($classMethodStmt);
+            }
         }
 
-        return null;
-    }
-
-    private function migrateExpectException(
-        ClassMethod $classMethod,
-        FuncCall|MethodCall $pestTestMethodCall
-    ): FuncCall|MethodCall {
-        $methodCall = $this->getExpectExceptionCall($classMethod);
-
-        if ($methodCall !== null) {
-            $this->removeNode($methodCall);
-
-            return new MethodCall($pestTestMethodCall, 'throws', $methodCall->getArgs());
-        }
-
-        return $pestTestMethodCall;
+        return $this->migrateDataProvider($classMethod, $pestTestCall);
     }
 
     private function migrateDataProvider(
@@ -153,61 +141,16 @@ CODE_SAMPLE
         return $pestTestNode;
     }
 
-    private function migratePhpDocGroup(
+    private function refactorPhpDocAnnotationToMethodCall(
         ClassMethod $classMethod,
-        FuncCall|MethodCall $pestTestNode
+        FuncCall|MethodCall $pestTestNode,
+        string $annotationName
     ): FuncCall|MethodCall {
-        $groups = $this->phpDocResolver->resolvePhpDocValuesByName($classMethod, 'group');
+        $groups = $this->phpDocResolver->resolvePhpDocValuesByName($classMethod, $annotationName);
 
         if ($groups !== []) {
             $args = $this->nodeFactory->createArgs($groups);
-            return new MethodCall($pestTestNode, 'group', $args);
-        }
-
-        return $pestTestNode;
-    }
-
-    private function migratePhpDocDepends(
-        ClassMethod $classMethod,
-        FuncCall|MethodCall $pestTestNode
-    ): FuncCall|MethodCall {
-        $depends = $this->phpDocResolver->resolvePhpDocValuesByName($classMethod, 'depends');
-        if ($depends !== []) {
-            $args = $this->nodeFactory->createArgs($depends);
-            return new MethodCall($pestTestNode, 'depends', $args);
-        }
-
-        return $pestTestNode;
-    }
-
-    private function getMarkTestSkippedCall(ClassMethod $classMethod): ?MethodCall
-    {
-        foreach ((array) $classMethod->getStmts() as $stmt) {
-            if (! $stmt instanceof Expression) {
-                continue;
-            }
-
-            if (! $stmt->expr instanceof MethodCall) {
-                continue;
-            }
-
-            $methodCall = $stmt->expr;
-            if (! $this->isName($methodCall->name, 'markTestSkipped')) {
-                continue;
-            }
-
-            return $methodCall;
-        }
-
-        return null;
-    }
-
-    private function migrateSkipCall(ClassMethod $classMethod, FuncCall|MethodCall $pestTestNode): FuncCall|MethodCall
-    {
-        $methodCall = $this->getMarkTestSkippedCall($classMethod);
-        if ($methodCall !== null) {
-            $this->removeNode($methodCall);
-            return new MethodCall($pestTestNode, 'skip', $methodCall->getArgs());
+            return new MethodCall($pestTestNode, $annotationName, $args);
         }
 
         return $pestTestNode;

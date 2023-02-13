@@ -6,6 +6,9 @@ namespace Rector\Pest\Set;
 
 use Rector\Set\Contract\SetListInterface;
 
+/**
+ * @api
+ */
 final class PestSetList implements SetListInterface
 {
     /**
