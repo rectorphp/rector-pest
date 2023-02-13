@@ -4,31 +4,31 @@ declare(strict_types=1);
 
 use Rector\Pest\Pest\PestCollectingRector;
 use Rector\Pest\PestCollector;
-use Rector\Pest\PHPUnit\Class_\CustomTestCaseToUsesRector;
-use Rector\Pest\PHPUnit\Class_\PhpDocGroupOnClassToFileScopeGroupRector;
-use Rector\Pest\PHPUnit\Class_\RemovePHPUnitClassRector;
-use Rector\Pest\PHPUnit\Class_\TraitUsesToUsesRector;
-use Rector\Pest\PHPUnit\ClassMethod\AfterClassToAfterAllRector;
-use Rector\Pest\PHPUnit\ClassMethod\BeforeClassToBeforeAllRector;
-use Rector\Pest\PHPUnit\ClassMethod\DataProviderRector;
-use Rector\Pest\PHPUnit\ClassMethod\HelperMethodRector;
-use Rector\Pest\PHPUnit\ClassMethod\MethodToPestTestRector;
-use Rector\Pest\PHPUnit\ClassMethod\SetUpToBeforeEachRector;
-use Rector\Pest\PHPUnit\ClassMethod\TearDownToAfterEachRector;
+use Rector\Pest\Rector\Class_\CustomTestCaseToUsesRector;
+use Rector\Pest\Rector\Class_\PhpDocGroupOnClassToFileScopeGroupRector;
+use Rector\Pest\Rector\Class_\RemovePHPUnitClassRector;
+use Rector\Pest\Rector\Class_\TraitUsesToUsesRector;
+use Rector\Pest\Rector\ClassMethod\AfterBeforeClassToAfterAllBeforeAllRector;
+use Rector\Pest\Rector\ClassMethod\BeforeClassToBeforeAllRector;
+use Rector\Pest\Rector\ClassMethod\DataProviderRector;
+use Rector\Pest\Rector\ClassMethod\HelperMethodRector;
+use Rector\Pest\Rector\ClassMethod\TestClassMethodToPestTestFuncCallRector;
+use Rector\Pest\Rector\ClassMethod\SetUpTearDownToBeforeEachAfterEachRector;
+use Rector\Pest\Rector\ClassMethod\TearDownToAfterEachRector;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
 
-    $services->set(MethodToPestTestRector::class);
+    $services->set(TestClassMethodToPestTestFuncCallRector::class);
 
     $services->set(TraitUsesToUsesRector::class);
 
-    $services->set(SetUpToBeforeEachRector::class);
+    $services->set(SetUpTearDownToBeforeEachAfterEachRector::class);
 
     $services->set(TearDownToAfterEachRector::class);
 
-    $services->set(AfterClassToAfterAllRector::class);
+    $services->set(AfterBeforeClassToAfterAllBeforeAllRector::class);
 
     $services->set(BeforeClassToBeforeAllRector::class);
 

@@ -19,8 +19,6 @@ final class SomeTest extends TestCase
 
 namespace Rector\Pest\Tests\Rector\Class_\PHPUnitTestToPestTestFunctionsRector\Fixture;
 
-use PHPUnit\Framework\TestCase;
-
 test('testSummary', function () {
     $result = 100 + 50;
     expect($result)->toBe(150);

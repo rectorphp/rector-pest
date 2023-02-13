@@ -2,26 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Rector\Pest\Tests\Rector\PHPUnit\Class_;
+namespace Rector\Pest\Tests\Rector\Class_\PhpDocGroupOnClassToFileScopeGroupRector;
 
 use Iterator;
-use Rector\Pest\Tests\Rector\PHPUnit\BasePHPUnitRectorTest;
-use Symplify\SmartFileSystem\SmartFileInfo;
+use PHPUnit\Framework\Attributes\DataProvider;
+use Rector\Testing\PHPUnit\AbstractRectorTestCase;
 
-final class PhpDocGroupOnClassToFileScopeGroupRectorTest extends BasePHPUnitRectorTest
+final class PhpDocGroupOnClassToFileScopeGroupRectorTest extends AbstractRectorTestCase
 {
-    /**
-     * @dataProvider provideData()
-     */
-    public function test(SmartFileInfo $fileInfo): void
+    #[DataProvider('provideData')]
+    public function test(string $filePath): void
     {
-        $this->doTestFileInfo($fileInfo);
+        $this->doTestFile($filePath);
     }
 
-    public function provideData(): Iterator
+    public static function provideData(): Iterator
     {
-        return $this->yieldFilesFromDirectory(
-            __DIR__ . '/../../../fixtures/PHPUnit/Class_/PhpDocGroupOnClassToFileScopeGroupRector'
-        );
+        return self::yieldFilesFromDirectory(__DIR__ . '/Fixture');
+    }
+
+    public function provideConfigFilePath(): string
+    {
+        return __DIR__ . '/config/configured_rule.php';
     }
 }

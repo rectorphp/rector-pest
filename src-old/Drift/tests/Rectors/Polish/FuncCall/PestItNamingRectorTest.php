@@ -14,14 +14,14 @@ final class PestItNamingRectorTest extends BasePolishRectorTest
     /**
      * @dataProvider provideData()
      */
-    public function test(SmartFileInfo $fileInfo): void
+    public function test(string $filePath): void
     {
         $this->doTestFileInfoWithoutAutoload($fileInfo);
     }
 
-    public function provideData(): Iterator
+    public static function provideData(): Iterator
     {
-        return $this->yieldFilesFromDirectory(__DIR__ . '/../../../fixtures/Polish/FuncCall/PestItNamingRector');
+        return self::yieldFilesFromDirectory(__DIR__ . '/Fixture');
     }
 
     protected function getRectorClass(): string

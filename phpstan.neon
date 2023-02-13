@@ -11,7 +11,7 @@ parameters:
 
     excludePaths:
         - */Source/*
-        - *Source/*
+        - */Fixture/*
 
     ignoreErrors:
         -

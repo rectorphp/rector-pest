@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Rector\Pest\Tests\Rector\Class_\TraitUsesToUsesRector;
+namespace Rector\Pest\Tests\Rector\ClassMethod\TestClassMethodToPestTestFuncCallRector;
 
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
 
-final class TraitUsesToUsesRectorTest extends AbstractRectorTestCase
+final class TestClassMethodToPestTestFuncCallRectorTest extends AbstractRectorTestCase
 {
     #[DataProvider('provideData')]
     public function test(string $filePath): void

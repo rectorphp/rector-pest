@@ -19,14 +19,13 @@ use PhpParser\Node\Stmt\Expression;
 use PHPUnit\Framework\TestCase;
 use Rector\Core\Rector\AbstractRector;
 use Rector\PHPUnit\NodeAnalyzer\TestsNodeAnalyzer;
-use Symplify\RuleDocGenerator\Contract\DocumentedRuleInterface;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
 /**
  * @see \Rector\Pest\Tests\Rector\Class_\PHPUnitTestToPestTestFunctionsRector\PHPUnitTestToPestTestFunctionsRectorTest
  */
-final class PHPUnitTestToPestTestFunctionsRector extends AbstractRector implements DocumentedRuleInterface
+final class PHPUnitTestToPestTestFunctionsRector extends AbstractRector
 {
     public function __construct(
         private readonly TestsNodeAnalyzer $testsNodeAnalyzer
