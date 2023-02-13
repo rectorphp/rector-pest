@@ -52,30 +52,27 @@ PHP
             return null;
         }
 
-        $args = (array) $node->args;
+        $args = $node->getArgs();
         if ($args === []) {
             return null;
         }
 
-        $firstArgument = $args[0];
-
-        if (! $firstArgument instanceof Arg) {
+        if (! $args[0]->value instanceof String_) {
             return null;
         }
 
-        $value = $firstArgument->value;
-        if (! $value instanceof String_) {
+        $string = $args[0]->value;
+        if (! $string instanceof String_) {
             return null;
         }
 
-        $firstArgumentValue = $value->value;
-
-        if (! \str_starts_with($firstArgumentValue, self::KEYWORD)) {
+        if (! \str_starts_with($string->value, self::KEYWORD)) {
             return null;
         }
 
         $node->name = new Name(self::KEYWORD);
-        $firstArgument->value = new String_(trim(substr($firstArgumentValue, strlen(self::KEYWORD))));
+
+        $string->value = trim(substr($string->value, strlen(self::KEYWORD)));
 
         return $node;
     }
