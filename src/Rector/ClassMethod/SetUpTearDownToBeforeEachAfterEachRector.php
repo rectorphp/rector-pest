@@ -6,6 +6,7 @@ namespace Rector\Pest\Rector\ClassMethod;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr\Closure;
+use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Expression;
@@ -65,8 +66,9 @@ CODE_SAMPLE
 
     /**
      * @param Class_ $node
+     * @return Stmt[]|null
      */
-    public function refactor(Node $node)
+    public function refactor(Node $node): ?array
     {
         if (! $this->testsNodeAnalyzer->isInTestClass($node)) {
             return null;
